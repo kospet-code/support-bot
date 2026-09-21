@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Казань · табло ведущего</title>
+<style>
+:root{--ink:#182638;--muted:#58697b;--paper:#f5f7fb;--white:#fff;--primary:#273b83;--teal:#007a70;--line:#dce2ec;--success:#e4f5f0;--danger:#a62430;--thumb:#9daabc;--track:#eef1f6;--radius:12px}
+*{box-sizing:border-box;scrollbar-color:var(--thumb) var(--track);scrollbar-width:thin}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 Arial,sans-serif}button,input,select,textarea{font:inherit}button,a,input[type=checkbox],select{cursor:pointer}button{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:9px;padding:10px 15px;min-height:44px;transition:background .15s}button:hover{background:#eaf0ff}button:active{transform:translateY(1px)}button:disabled{cursor:not-allowed;opacity:.5;transform:none}button.primary{background:var(--primary);border-color:var(--primary);color:#fff}button.primary:hover{background:#1c2b65}button.ghost{background:transparent}button.danger{color:var(--danger)}:focus-visible{outline:3px solid #de9600;outline-offset:3px}input,select,textarea{border:1px solid #9daabc;border-radius:8px;background:white;color:var(--ink);padding:10px;width:100%;min-height:44px}textarea{resize:none;min-height:96px}a{color:var(--primary)}[hidden]{display:none!important}.wrap{max-width:1540px;padding:28px 32px 60px;margin:auto}header{display:flex;gap:20px;justify-content:space-between;align-items:flex-start}.eyebrow{font-size:12px;letter-spacing:.13em;font-weight:bold;text-transform:uppercase;color:var(--primary);margin:0 0 6px}h1{font-size:clamp(30px,3.4vw,46px);letter-spacing:-.035em;line-height:1.1;margin:0 0 10px}h2{font-size:25px;line-height:1.2;margin:0 0 15px}.muted{color:var(--muted)}p{margin:0 0 12px}.venue{display:flex;gap:4px;padding:4px;border:1px solid var(--line);border-radius:12px;background:white}.venue button{border:0;min-width:110px}.venue [aria-pressed=true]{background:var(--primary);color:white}.toolbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:20px 0 14px}.toolbar .push{margin-left:auto}.summary{display:flex;flex-wrap:wrap;gap:8px 22px;border-bottom:1px solid var(--line);padding:8px 0 18px;margin-bottom:18px;color:var(--muted);font-size:14px}.summary strong{color:var(--ink);font-size:19px;margin-right:4px}.workspace{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:22px;align-items:start}.table-shell{overflow:auto;max-height:calc(100vh - 320px);min-height:240px;border:1px solid var(--line);border-radius:12px;background:white;scrollbar-gutter:stable}table{width:100%;border-collapse:separate;border-spacing:0;table-layout:fixed;min-width:840px}th,td{padding:13px 10px;border-bottom:1px solid var(--line);text-align:center;vertical-align:middle}thead th{position:sticky;top:0;background:#eef2f9;z-index:2;font-size:12px;line-height:1.4;letter-spacing:.01em;font-weight:bold;height:76px}th:first-child,td:first-child{position:sticky;left:0;z-index:1;background:white;text-align:left;width:175px}thead th:first-child{background:#eef2f9;z-index:3}th:nth-child(2){width:220px}td:nth-child(2){text-align:left;font-size:13px;line-height:1.35;color:var(--muted)}thead th:nth-child(n+3){width:72px}tbody tr:hover td{background:#f6f9fd}tbody tr:last-child td{border-bottom:0}.team-button{padding:3px 0;border:0;border-radius:3px;text-align:left;font-weight:bold;min-height:40px;color:var(--primary);background:transparent;overflow-wrap:anywhere}.team-number{display:block;font-size:11px;font-weight:normal;color:var(--muted)}.check{width:30px;height:30px;min-height:30px;accent-color:var(--teal);vertical-align:middle;margin:4px}.stage-number{display:block;color:var(--primary);font-size:18px;margin-bottom:2px}.empty{padding:50px 25px;text-align:center}.empty p{max-width:420px;margin:0 auto 18px}.timer{background:var(--primary);color:white;padding:22px;border-radius:16px;position:sticky;top:20px}.timer label{display:block;font-size:12px;margin-bottom:6px;color:#dae1ff}.timer select{font-size:13px}.clock{font-variant-numeric:tabular-nums;font-size:58px;font-weight:bold;line-height:1.15;letter-spacing:-.055em;margin:20px 0 6px}.timer-note{font-size:12px;color:#dae1ff;min-height:36px}.timer-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.timer-actions button{padding:8px;font-size:13px}.timer-actions .start{grid-column:1/-1;background:#e4f5f0;color:#00594f;font-weight:bold;border-color:#e4f5f0}.timer .minutes{display:flex;align-items:center;gap:10px;margin-top:12px;font-size:12px}.timer .minutes input{width:74px}.timer.expired{background:#7b3142}.help{margin-top:20px;color:var(--muted);font-size:12px;line-height:1.5}.status{min-height:28px;color:var(--teal);font-size:13px;margin:10px 0}.status.error{color:var(--danger)}.searchbox{display:flex;gap:4px;max-width:230px;align-items:center}.searchbox input{min-width:0;padding:9px;font-size:14px}.searchbox button{padding:9px}.dialog{border:1px solid var(--line);border-radius:16px;width:min(560px,calc(100vw - 24px));max-height:90vh;padding:28px;box-shadow:0 20px 80px #14264e44}.dialog::backdrop{background:#12213b88}.field{display:block;margin:16px 0}.field>span{display:block;margin-bottom:6px;font-size:14px;font-weight:bold}.dialog-actions{display:flex;gap:8px;justify-content:flex-end;margin-top:24px}.dialog-actions .danger{margin-right:auto}.field-error{font-size:13px;color:var(--danger);min-height:20px}.quick-help{font-size:12px;color:var(--muted);margin-top:8px}.project-mode .operator{display:none!important}.project-mode .wrap{max-width:none;padding:20px}.project-mode .table-shell{max-height:calc(100vh - 220px)}.project-mode h1{font-size:34px}.leave-presentation{display:none;position:fixed;bottom:12px;right:16px;z-index:5;box-shadow:0 3px 16px #14264e22}.project-mode .leave-presentation{display:block}.project-mode .help{display:none}.print-meta{display:none}.full-timer .workspace{grid-template-columns:1fr}.full-timer .board-area,.full-timer header,.full-timer .toolbar,.full-timer .summary,.full-timer .help,.full-timer .status{display:none}.full-timer .timer{max-width:1100px;min-height:calc(100vh - 90px);margin:auto;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%}.full-timer .timer select{max-width:700px;font-size:20px}.full-timer .clock{font-size:clamp(100px,22vw,310px)}.full-timer .timer-actions{width:350px}.full-timer .timer-note{font-size:22px}.full-timer .leave-presentation{display:block}.undo{font-size:13px;padding:4px 10px;min-height:30px}tbody tr.done td,tbody tr.done:hover td{background:#fff6e2}tbody tr.done td:first-child,tbody tr.done:hover td:first-child{background:#fff6e2;box-shadow:inset 7px 0 0 #f59e0b}tbody tr.done td:last-child{box-shadow:inset -7px 0 0 #f59e0b}tbody tr.done .team-button{color:#8a4b00}.team-button{display:block}.done-badge{display:block;width:fit-content;margin-top:6px;font-size:10px;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:#3b2100;background:#f59e0b;border:0;border-radius:999px;padding:3px 10px}.summary .all-done{color:#8a4b00}.summary .all-done strong{color:#8a4b00}
+@media(max-width:1100px){.workspace{grid-template-columns:minmax(0,1fr)}.timer{position:static;display:grid;grid-template-columns:minmax(180px,1fr) auto;gap:0 20px}.timer h2,.timer label,.timer select{grid-column:1}.clock{grid-column:2;grid-row:1/4;margin:0;font-size:68px}.timer .timer-note{grid-column:1}.timer-actions{grid-column:2;grid-row:4/7;margin:0;min-width:200px}.timer .minutes{grid-column:1}.timer .wide{grid-column:1;margin-top:10px}.table-shell{max-height:60vh}.timer select{max-width:480px}}
+@media(max-width:650px){.wrap{padding:20px 14px 45px}header{display:block}.venue{margin-top:16px;width:max-content}.toolbar .push{margin-left:0}.searchbox{max-width:none;width:100%}.toolbar>button{font-size:13px;padding:10px}.summary{gap:7px 16px}.timer{display:block}.clock{margin:16px 0}.timer-actions{margin-top:10px}.dialog{padding:20px}.dialog-actions{flex-wrap:wrap}.project-mode .wrap{padding:12px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media print{@page{size:A4 landscape;margin:10mm}body{background:white;font-size:10pt}.wrap{padding:0;max-width:none}header{display:block}h1{font-size:24pt}.operator,.venue,.toolbar,.timer,.help,.status,.leave-presentation,.dialog{display:none!important}.summary{font-size:9pt;margin-bottom:10px}.summary strong{font-size:11pt}.workspace{display:block}.table-shell{overflow:visible;border:0;max-height:none!important;min-height:0}.print-meta{display:block;font-size:9pt;margin-bottom:10px}table{min-width:0;table-layout:auto;width:100%;border-collapse:collapse}thead{display:table-header-group}th,td{position:static!important;border:1px solid #aaa;padding:5px;height:auto!important;background:white!important}tr{break-inside:avoid}th:first-child,td:first-child{width:15%}th:nth-child(2){width:30%}th:nth-child(n+3){width:9%}.team-button{color:black;font-size:10pt;min-height:0;padding:0}.check{display:none}tbody tr.done td{background:#f0f0f0!important}.done-badge{color:#111!important;background:none!important;border-color:#777!important;padding:1px 6px;font-size:8pt}.printed-check{font-size:18pt}.team-number{font-size:8pt}}
+@media screen{.printed-check{display:none}}
+@media print{.full-timer .board-area,.full-timer header,.full-timer .summary{display:block}}
+</style></head><body>
+<div class="wrap">
+<header><div><p class="eyebrow">Казань · хакатон 2026</p><h1>Табло ведущего</h1><p class="muted" id="venueDate"></p></div><div class="venue operator" role="group" aria-label="Площадка"><button data-venue="kgau" aria-pressed="true">КГАУ</button><button data-venue="tisbi" aria-pressed="false">ТИСБИ</button></div></header>
+<div class="toolbar operator"><button class="primary" id="add">+ Команда</button><button id="batch">Добавить 10 команд</button><div class="searchbox"><input type="search" id="search" placeholder="Найти команду или тему" aria-label="Найти команду или тему"><button id="clearSearch" hidden aria-label="Очистить поиск">×</button></div><button class="push" id="present">Режим показа</button><button id="print">Отчёт / печать</button><button id="export">Скачать копию</button><button id="import">Загрузить копию</button><input type="file" id="file" accept=".json,application/json" hidden></div>
+<div class="summary" id="summary"></div>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<div class="print-meta" id="printMeta"></div>
+<div class="workspace">
+<section class="board-area" aria-label="Готовность команд"><div class="table-shell" tabindex="0" role="region" aria-label="Таблица команд и шести этапов">
+<table id="board"><thead><tr><th scope="col">Команда</th><th scope="col">Выбранная тема</th><th scope="col"><span class="stage-number">1</span>Проблема</th><th scope="col"><span class="stage-number">2</span>Разговор</th><th scope="col"><span class="stage-number">3</span>Альтернативы</th><th scope="col"><span class="stage-number">4</span>Прототип</th><th scope="col"><span class="stage-number">5</span>Проверка</th><th scope="col"><span class="stage-number">6</span>Показ</th></tr></thead><tbody id="rows"></tbody></table>
+<div id="empty" class="empty"><h2>Начнём с команд</h2><p class="muted">Добавьте команду, впишите название и выберите тему. Затем отмечайте готовые этапы галочками.</p><button class="primary operator" id="emptyAdd">Добавить первую команду</button></div>
+<div id="noResults" class="empty" hidden><p>По этому запросу команд нет.</p><button id="emptyClear">Очистить поиск</button></div></div><p class="quick-help operator">Нажмите название команды, чтобы изменить название или тему. Галочка означает, что команда завершила этап.</p></section>
+<aside class="timer" id="timer"><h2>Время этапа</h2><label for="stage">Этап расписания</label><select id="stage"></select><div class="clock" id="clock" role="timer">30:00</div><p class="timer-note" id="timerNote">Таймер готов к запуску</p><div class="minutes"><label for="minutes">Минуты</label><input id="minutes" type="number" min="1" max="180" value="30"></div><div class="timer-actions"><button class="start" id="startTimer">Запустить</button><button id="resetTimer">Сбросить</button><button id="plusMinute">+1 минута</button></div><button class="wide" id="timerFull" style="margin-top:12px">Таймер на весь экран</button></aside>
+</div><p class="help">Записи сохраняются в этом браузере. Ведите табло на одном устройстве и скачивайте копию в конце этапа. В копии хранятся обе площадки. Через «Отчёт / печать» можно сохранить PDF выбранной площадки. Интернет для табло не нужен.</p>
+</div><button class="leave-presentation" id="exit">Вернуться к управлению · Esc</button>
+<dialog class="dialog" id="editor" aria-labelledby="editTitle"><form id="editForm" novalidate><h2 id="editTitle">Команда и тема</h2><label class="field"><span>Название команды</span><input id="teamName" maxlength="80" autocomplete="off" aria-describedby="editError"></label><label class="field"><span>Тема из банка</span><select id="teamTopic"><option value="">Тема пока не выбрана</option></select></label><label class="field"><span>Или своя тема</span><input id="customTopic" maxlength="180" placeholder="Кому и с чем помогает команда" autocomplete="off"></label><p class="quick-help">Если вписать свою тему, она заменит выбор из банка.</p><p class="field-error" id="editError" role="alert"></p><div class="dialog-actions"><button class="danger" type="button" id="deleteTeam">Удалить команду</button><button type="button" id="cancelEdit">Отмена</button><button class="primary" type="submit">Сохранить</button></div></form></dialog>
+<dialog class="dialog" id="confirmation" aria-labelledby="confirmTitle"><h2 id="confirmTitle"></h2><p id="confirmText"></p><div class="dialog-actions"><button id="cancelConfirm" autofocus>Отмена</button><button class="primary" id="doConfirm">Продолжить</button></div></dialog>
+<script>
+const CATALOG={"kgau": [{"id": "Т001", "title": "Погода решает: риски для поля на три дня"}, {"id": "Т002", "title": "Болезнь по фото листа: учебная карточка осмотра"}, {"id": "Т003", "title": "Ряды растений: подсказка механизатору"}, {"id": "Т004", "title": "Полив по факту: дневник влажности"}, {"id": "Т005", "title": "Облёт дрона: карта зон для осмотра"}, {"id": "Т006", "title": "Паспорт поля: история участка вместо тетради"}, {"id": "Т007", "title": "Сколько соберём: три сценария урожая"}, {"id": "Т008", "title": "Ветеринарный документооборот: черновик осмотра"}, {"id": "Т009", "title": "Контроль на ферме: журнал замечаний"}, {"id": "Т010", "title": "Аптечка стада: учёт препаратов и сроков"}, {"id": "Т011", "title": "Путь партии: от поля до полки"}, {"id": "Т012", "title": "Склад удобрений под присмотром"}, {"id": "Т013", "title": "Биржа фермера: техника и услуги рядом"}, {"id": "Т014", "title": "Свежесть под контролем: меньше списаний"}, {"id": "Т015", "title": "Счёт клеток по фото: учебный счётчик объектов"}, {"id": "Т016", "title": "Дашборд руководителя агропредприятия"}, {"id": "Т017", "title": "База знаний, которая отвечает по источнику"}, {"id": "Т018", "title": "Управление питомником: тренажёр одного решения"}, {"id": "Т019", "title": "Агронавык за 20 минут: короткий учебный модуль"}, {"id": "Т020", "title": "Бизнес-игра «Сезон»: экономика одного поля"}, {"id": "Т021", "title": "«Я в Агро»: три профессии района"}], "tisbi": [{"id": "Т022", "title": "Переводчик анализов: понятная карточка показателей"}, {"id": "Т023", "title": "Врач без бумаги: черновик по расшифровке приёма"}, {"id": "Т024", "title": "Шкала за минуту: учебная форма ввода"}, {"id": "Т025", "title": "Допить курс: дневник выполнения назначения"}, {"id": "Т026", "title": "Домой после стационара: дневник самонаблюдения"}, {"id": "Т027", "title": "Реабилитация дома: дневник готового комплекса"}, {"id": "Т028", "title": "Цифровой маршрут пациента: следующий шаг"}, {"id": "Т029", "title": "Диспансеризация без переписывания: импорт показателей"}, {"id": "Т030", "title": "HealthStart: понятный путь в Центр здоровья"}, {"id": "Т031", "title": "VitaPulse: дневник питания и питьевого режима"}, {"id": "Т032", "title": "Школа по уходу: один понятный учебный модуль"}, {"id": "Т033", "title": "Консилиум за 20 минут: карточка обсуждения"}, {"id": "Т034", "title": "Скаутинг: найти решение под запрос клиники"}, {"id": "Т035", "title": "HealthNet-стартап: карточка для первого разбора"}, {"id": "Т036", "title": "Водитель на грани: макет уведомления об усталости"}, {"id": "Т037", "title": "Движение кисти: учебное распознавание положений"}, {"id": "Т038", "title": "Равный консультант: первый шаг к живому контакту"}, {"id": "Т039", "title": "Тренажёр трудного разговора для медперсонала"}, {"id": "Т040", "title": "Тест слуха в браузере: учебный интерфейс"}, {"id": "Т041", "title": "Раннее выгорание: запрос поддержки студентом"}]};
+const SCHEDULE=[{"id": "start", "start": "10:00", "end": "10:15", "minutes": 15, "title": "Открытие и запуск команд"}, {"id": "theory", "start": "10:15", "end": "11:30", "minutes": 75, "title": "Шесть коротких вводных блоков"}, {"id": "problem", "start": "11:30", "end": "12:00", "minutes": 30, "title": "Команда, идеи и проблема"}, {"id": "break1", "start": "12:00", "end": "12:10", "minutes": 10, "title": "Перерыв"}, {"id": "interview", "start": "12:10", "end": "12:50", "minutes": 40, "title": "Разговор с пользователем"}, {"id": "lunch", "start": "12:50", "end": "13:20", "minutes": 30, "title": "Обед"}, {"id": "market", "start": "13:20", "end": "13:45", "minutes": 25, "title": "Рынок и альтернативы"}, {"id": "mvp", "start": "13:45", "end": "14:30", "minutes": 45, "title": "Одна минимальная функция"}, {"id": "break2", "start": "14:30", "end": "14:40", "minutes": 10, "title": "Перерыв"}, {"id": "test", "start": "14:40", "end": "15:10", "minutes": 30, "title": "Проверка сценария и правка"}, {"id": "pitch", "start": "15:10", "end": "15:20", "minutes": 10, "title": "Подготовка показа"}, {"id": "gallery", "start": "15:20", "end": "15:50", "minutes": 30, "title": "Параллельные показы"}, {"id": "finish", "start": "15:50", "end": "16:00", "minutes": 10, "title": "Итоги и следующий шаг"}];
+const NAMES={kgau:'КГАУ',tisbi:'ТИСБИ'};
+const DATES={kgau:'22 сентября 2026',tisbi:'23 сентября 2026'};
+const STAGES=['Проблема','Разговор','Альтернативы','Прототип','Проверка','Показ'];
+const KEY='kazan-simple-board-v1';
+const $=id=>document.getElementById(id);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const uid=()=>globalThis.crypto?.randomUUID?.() || Date.now().toString(36)+Math.random().toString(36).slice(2);
+function timerDefault(){return{stage:'problem',duration:1800000,remaining:1800000,deadline:null}}
+function fresh(){return{format:'kazan-simple-board',version:1,active:'kgau',venues:{kgau:{teams:[],timer:timerDefault()},tisbi:{teams:[],timer:timerDefault()}}}}
+function valid(s){
+ if(!s||s.format!=='kazan-simple-board'||s.version!==1||!['kgau','tisbi'].includes(s.active)||!s.venues)return false;
+ return ['kgau','tisbi'].every(v=>{
+ const q=s.venues[v];if(!q||!Array.isArray(q.teams)||q.teams.length>60||!q.timer)return false;
+ const t=q.timer;
+ if(!SCHEDULE.some(x=>x.id===t.stage)||![t.duration,t.remaining].every(x=>Number.isFinite(x)&&x>=0&&x<=86400000)||!(t.deadline===null||Number.isFinite(t.deadline)))return false;
+ if(new Set(q.teams.map(t=>t.id)).size!==q.teams.length)return false;
+ return q.teams.every(t=>typeof t.id==='string'&&t.id.length<100&&typeof t.name==='string'&&t.name.trim()&&t.name.length<=80&&typeof t.topic==='string'&&typeof t.custom==='string'&&t.custom.length<=180&&(!t.topic||CATALOG[v].some(x=>x.id===t.topic))&&Array.isArray(t.done)&&t.done.length===6&&t.done.every(x=>typeof x==='boolean'));
+ });
+}
+let state=fresh(),loadError=false,editId=null,pending=null,lastFocus=null,externalState=null;
+try{const raw=localStorage.getItem(KEY);if(raw){const s=JSON.parse(raw);if(!valid(s))throw Error();state=s}}catch(e){loadError=true}
+const current=()=>state.venues[state.active];
+function status(message,error=false){$('status').textContent=message;$('status').classList.toggle('error',error)}
+function save(message='Сохранено в этом браузере'){
+ if(externalState)return;
+ try{localStorage.setItem(KEY,JSON.stringify(state));status(message)}catch(e){status('Не удалось сохранить в браузере. Нажмите «Скачать копию», чтобы сохранить записи.',true)}
+}
+function topicName(t){return t.custom.trim()||CATALOG[state.active].find(x=>x.id===t.topic)?.title||'Тема пока не выбрана'}
+function markDone(tr,all){
+ if(!tr)return;
+ tr.classList.toggle('done',all);
+ const cell=tr.querySelector('td');let badge=cell.querySelector('.done-badge');
+ if(all&&!badge){badge=document.createElement('span');badge.className='done-badge';badge.textContent='Все шесть этапов';cell.append(badge)}
+ if(!all&&badge)badge.remove();
+}
+function renderStats(){
+ const ts=current().teams;
+ $('summary').innerHTML='<span>Команд: <strong>'+ts.length+'</strong></span>'+STAGES.map((s,i)=>'<span>'+esc(s)+': <strong>'+ts.filter(t=>t.done[i]).length+'</strong></span>').join('')+'<span class="all-done">Прошли весь путь: <strong>'+ts.filter(t=>t.done.every(Boolean)).length+'</strong></span>';
+ $('printMeta').textContent=NAMES[state.active]+' · '+DATES[state.active]+' · Снимок табло '+new Date().toLocaleString('ru-RU');
+}
+function renderRows(){
+ const focusedTeam=document.activeElement?.dataset.edit;
+ const ts=current().teams,q=$('search').value.toLocaleLowerCase('ru-RU').trim();
+ const shown=ts.filter(t=>(t.name+' '+topicName(t)).toLocaleLowerCase('ru-RU').includes(q));
+ $('clearSearch').hidden=!q;
+ $('rows').innerHTML=shown.map(t=>{const all=t.done.every(Boolean);return '<tr'+(all?' class="done"':'')+'><td><button class="team-button" data-edit="'+esc(t.id)+'"><span class="team-number">Команда '+(ts.indexOf(t)+1)+'</span>'+esc(t.name)+'</button>'+(all?'<span class="done-badge">Все шесть этапов</span>':'')+'</td><td>'+esc(topicName(t))+'</td>'+t.done.map((d,i)=>'<td><input class="check" type="checkbox" data-id="'+esc(t.id)+'" data-stage="'+i+'" '+(d?'checked':'')+' aria-label="'+esc(t.name+': '+STAGES[i])+'"><span class="printed-check">'+(d?'✓':'—')+'</span></td>').join('')+'</tr>'}).join('');
+ $('board').hidden=shown.length===0;$('empty').hidden=ts.length>0;$('noResults').hidden=ts.length===0||shown.length>0;
+ $('batch').disabled=ts.length>50;$('add').disabled=ts.length>=60;
+ renderStats();
+ if(focusedTeam){const b=Array.from($('rows').querySelectorAll('[data-edit]')).find(b=>b.dataset.edit===focusedTeam);(b||$('add')).focus()}
+ if(document.activeElement===$('emptyAdd')&&ts.length)$('add').focus();
+}
+function render(){
+ $('venueDate').textContent=NAMES[state.active]+' · '+DATES[state.active]+' · 10:00–16:00';
+ document.querySelectorAll('[data-venue]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.venue===state.active)));
+ renderRows();renderTimer();
+}
+function left(t){return t.deadline===null?t.remaining:Math.max(0,t.deadline-Date.now())}
+function renderTimer(){
+ const t=current().timer,n=Math.ceil(left(t)/1000);
+ $('clock').textContent=String(Math.floor(n/60)).padStart(2,'0')+':'+String(n%60).padStart(2,'0');
+ const running=t.deadline!==null;
+ $('timer').classList.toggle('expired',n===0);
+ $('stage').value=t.stage;$('stage').disabled=running;$('minutes').disabled=running;
+ $('startTimer').textContent=running?'Пауза':n===0?'Запустить заново':'Запустить';
+ $('timerNote').textContent=n===0?'Время этапа закончилось':running?'Идёт отсчёт':left(t)<t.duration?'Таймер на паузе':'Таймер готов к запуску';
+ if(document.activeElement!==$('minutes'))$('minutes').value=Math.max(1,Math.round(t.duration/60000));
+}
+$('stage').innerHTML=SCHEDULE.map(s=>'<option value="'+s.id+'">'+esc(s.start+'–'+s.end+' '+s.title)+'</option>').join('');
+document.querySelectorAll('[data-venue]').forEach(b=>b.onclick=()=>{
+ if(state.active===b.dataset.venue)return;state.active=b.dataset.venue;$('search').value='';render();save('Открыта площадка '+NAMES[state.active]);
+});
+$('rows').addEventListener('change',e=>{
+ const el=e.target;if(!el.matches('[data-stage]'))return;
+ const t=current().teams.find(t=>t.id===el.dataset.id);if(!t)return;
+ t.done[Number(el.dataset.stage)]=el.checked;el.nextElementSibling.textContent=el.checked?'✓':'—';
+ markDone(el.closest('tr'),t.done.every(Boolean));
+ renderStats();save();
+});
+$('rows').addEventListener('click',e=>{const b=e.target.closest('[data-edit]');if(b)openEdit(b.dataset.edit)});
+function showDialog(d){lastFocus=document.activeElement;d.showModal()}
+function closeDialog(d){d.close();applyExternalState();if(lastFocus?.isConnected)lastFocus.focus();else $('add').focus()}
+function applyExternalState(){
+ if(!externalState||$('editor').open||$('confirmation').open)return;
+ state=externalState;externalState=null;
+ $('editForm').querySelector('[type=submit]').disabled=false;$('deleteTeam').disabled=false;$('doConfirm').disabled=false;
+ render();status('Табло обновлено из другой вкладки. Откройте команду, чтобы продолжить правку.');
+}
+$('editor').addEventListener('close',applyExternalState);$('confirmation').addEventListener('close',applyExternalState);
+function openEdit(id=null){
+ editId=id;const t=current().teams.find(t=>t.id===id);
+ $('editTitle').textContent=t?'Команда и тема':'Новая команда';
+ $('teamName').value=t?.name||'Команда '+(current().teams.length+1);
+ $('teamTopic').innerHTML='<option value="">Тема пока не выбрана</option>'+CATALOG[state.active].map(x=>'<option value="'+esc(x.id)+'">'+esc(x.id+' · '+x.title)+'</option>').join('');
+ $('teamTopic').value=t?.topic||'';$('customTopic').value=t?.custom||'';
+ $('deleteTeam').hidden=!t;$('editError').textContent='';$('teamName').removeAttribute('aria-invalid');showDialog($('editor'));$('teamName').focus();$('teamName').select();
+}
+$('add').onclick=()=>openEdit();$('emptyAdd').onclick=()=>openEdit();
+$('batch').onclick=()=>{
+ const ts=current().teams;const n=Math.min(10,60-ts.length);
+ for(let i=0;i<n;i++)ts.push({id:uid(),name:'Команда '+(ts.length+1),topic:'',custom:'',done:Array(6).fill(false)});
+ renderRows();save('Добавлено команд: '+n);
+};
+$('cancelEdit').onclick=()=>closeDialog($('editor'));
+$('teamTopic').onchange=()=>{if($('teamTopic').value)$('customTopic').value=''};
+$('editForm').onsubmit=e=>{
+ e.preventDefault();if(externalState)return;const name=$('teamName').value.trim();
+ if(!name){$('editError').textContent='Введите название команды.';$('teamName').setAttribute('aria-invalid','true');$('teamName').focus();return}
+ const custom=$('customTopic').value.trim(),topic=custom?'':$('teamTopic').value;
+ let t=current().teams.find(t=>t.id===editId);
+ if(t){Object.assign(t,{name,topic,custom})}else{
+ if(current().teams.length>=60){$('editError').textContent='На табло уже 60 команд.';return}
+ current().teams.push({id:uid(),name,topic,custom,done:Array(6).fill(false)});
+ }
+ closeDialog($('editor'));renderRows();save('Команда сохранена');
+};
+function confirmAction(title,text,label,action){
+ $('confirmTitle').textContent=title;$('confirmText').textContent=text;$('doConfirm').textContent=label;pending=action;showDialog($('confirmation'));$('cancelConfirm').focus();
+}
+$('cancelConfirm').onclick=()=>{pending=null;closeDialog($('confirmation'))};
+$('doConfirm').onclick=()=>{if(externalState)return;const act=pending;pending=null;closeDialog($('confirmation'));act?.()};
+$('confirmation').addEventListener('cancel',()=>pending=null);
+$('deleteTeam').onclick=()=>{
+ const venue=state.active,t=current().teams.find(t=>t.id===editId);if(!t)return;
+ closeDialog($('editor'));
+ confirmAction('Удалить команду «'+t.name+'»?','Будут удалены её тема и отметки шести этапов. Остальные команды сохранятся.','Удалить',()=>{
+ const ts=state.venues[venue].teams,index=ts.findIndex(x=>x.id===t.id);ts.splice(index,1);renderRows();save('Команда удалена. ');
+ const b=document.createElement('button');b.className='undo';b.textContent='Отменить удаление';b.onclick=()=>{ts.splice(index,0,t);renderRows();save('Команда восстановлена')};$('status').append(b);
+ });
+};
+$('search').oninput=renderRows;
+function clearSearch(){$('search').value='';renderRows();$('search').focus()}
+$('clearSearch').onclick=clearSearch;$('emptyClear').onclick=clearSearch;
+$('stage').onchange=()=>{const s=SCHEDULE.find(s=>s.id===$('stage').value);const t=current().timer;t.stage=s.id;t.duration=s.minutes*60000;t.remaining=t.duration;t.deadline=null;renderTimer();save('Выбран этап «'+s.title+'»')};
+$('minutes').onchange=()=>{
+ const val=Number($('minutes').value);
+ if(!Number.isFinite(val)||val<1||val>180){status('Укажите длительность от 1 до 180 минут.',true);$('minutes').setAttribute('aria-invalid','true');return}
+ $('minutes').removeAttribute('aria-invalid');const t=current().timer;t.duration=Math.round(val)*60000;t.remaining=t.duration;t.deadline=null;renderTimer();save('Длительность таймера сохранена');
+};
+$('startTimer').onclick=()=>{
+ const t=current().timer;
+ if(t.deadline!==null){t.remaining=left(t);t.deadline=null}
+ else{if(!left(t))t.remaining=t.duration;t.deadline=Date.now()+t.remaining}
+ renderTimer();save(t.deadline===null?'Таймер на паузе':'Таймер запущен');
+};
+$('resetTimer').onclick=()=>{const t=current().timer;t.deadline=null;t.remaining=t.duration;renderTimer();save('Таймер сброшен')};
+$('plusMinute').onclick=()=>{const t=current().timer;if(t.deadline!==null)t.deadline+=60000;else t.remaining+=60000;t.duration=Math.max(t.duration,left(t));renderTimer();save('К таймеру добавлена минута')};
+setInterval(()=>{if(externalState)return;const t=current().timer;if(t.deadline!==null&&t.deadline<=Date.now()){t.deadline=null;t.remaining=0;save('Время этапа закончилось')}renderTimer()},250);
+function download(content,name,type){const u=URL.createObjectURL(new Blob([content],{type}));const a=document.createElement('a');a.href=u;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(u),1000)}
+$('export').onclick=()=>{download(JSON.stringify(state,null,2),'Казань_табло_'+new Date().toISOString().slice(0,10)+'.json','application/json');status('Копия обеих площадок подготовлена для скачивания')};
+$('import').onclick=()=>$('file').click();
+$('file').onchange=async()=>{
+ const f=$('file').files[0];if(!f)return;
+ try{
+ if(f.size>1500000)throw Error();const incoming=JSON.parse(await f.text());if(!valid(incoming))throw Error();
+ confirmAction('Загрузить копию табло?','Текущие записи обеих площадок заменятся. В файле: КГАУ — '+incoming.venues.kgau.teams.length+' команд, ТИСБИ — '+incoming.venues.tisbi.teams.length+' команд.','Загрузить',()=>{
+ state=incoming;$('search').value='';render();save('Копия загружена');
+ });
+ }catch(e){status('Файл не подходит. Выберите JSON, скачанный из этого табло. Ваши записи сохранены.',true)}
+ $('file').value='';
+};
+$('print').onclick=()=>window.print();
+let printQuery=null;
+window.addEventListener('beforeprint',()=>{if(printQuery===null)printQuery=$('search').value;$('search').value='';renderRows()});
+window.addEventListener('afterprint',()=>{if(printQuery!==null){$('search').value=printQuery;printQuery=null;renderRows()}});
+function exitMode(){document.body.classList.remove('project-mode','full-timer');if(document.fullscreenElement)document.exitFullscreen().catch(()=>{});$('present').focus()}
+$('present').onclick=()=>{document.body.classList.add('project-mode');document.documentElement.requestFullscreen?.().catch(()=>{});$('exit').focus()};
+$('timerFull').onclick=()=>{document.body.classList.add('full-timer');document.documentElement.requestFullscreen?.().catch(()=>{});$('exit').focus()};
+$('exit').onclick=exitMode;
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(document.body.classList.contains('project-mode')||document.body.classList.contains('full-timer')))exitMode()});
+document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&(document.body.classList.contains('project-mode')||document.body.classList.contains('full-timer')))exitMode()});
+window.addEventListener('storage',e=>{
+ if(e.key!==KEY||!e.newValue)return;try{const next=JSON.parse(e.newValue);if(!valid(next))throw Error();if($('editor').open||$('confirmation').open){externalState=next;pending=null;const message='Табло изменено в другой вкладке. Закройте диалог, чтобы получить свежие записи, затем повторите правку.';status(message,true);$('editError').textContent=message;$('editForm').querySelector('[type=submit]').disabled=true;$('deleteTeam').disabled=true;$('doConfirm').disabled=true;return}state=next;render();status('Обновлено из другой вкладки')}catch(err){status('Не удалось прочитать изменения другой вкладки. Скачайте текущую копию.',true)}
+});
+render();if(loadError)status('Сохранённые данные не удалось прочитать. Загрузите резервную копию или начните новое табло.',true);
+</script></body></html>
