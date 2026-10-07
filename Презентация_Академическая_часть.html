@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Академическая часть перед симуляцией — Конкуренция и Стратегии</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800;900&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<style>
+  deck-stage:not(:defined){visibility:hidden}
+  .focus-hero {
+    border-left: 4px solid var(--cyan);
+    padding-left: 20px;
+    background: rgba(45, 226, 230, 0.05);
+    border-radius: 0 12px 12px 0;
+  }
+  .focus-hero.mag {
+    border-left-color: var(--mag);
+    background: rgba(255, 46, 196, 0.05);
+  }
+</style>
+</head>
+<body>
+
+<deck-stage width="1920" height="1080">
+
+<!-- ============ SLIDE 1: ТИТУЛЬНЫЙ ============ -->
+<section data-label="Введение">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">АКАДЕМИЧЕСКАЯ ТЕОРИЯ // ВУЗЫ</div>
+      <div class="sec-no">// МОДУЛЬ 00</div>
+    </div>
+
+    <div class="col" style="margin:auto 0; gap:24px">
+      <div class="eyebrow"><span>БИЗНЕС-ОБРАЗОВАНИЕ · 01</span></div>
+      <h1 class="title t-xxl glitch">КОНКУРЕНЦИЯ &<br><span class="cy">СТРАТЕГИИ РОСТА</span></h1>
+
+      <div class="focus-hero" style="padding: 16px 24px; max-width: 90ch;">
+        <p class="lede" style="font-size:24px;color:var(--white);margin:0;font-weight:700">
+          ОСНОВНАЯ МЫСЛЬ: Успешный запуск стартапа — это не удача, а управление связками ресурсов, кадрами и реакция на рынок.
+        </p>
+      </div>
+
+      <p class="lede" style="max-width:75ch;margin-top:4px">
+        Краткий теоретический экспресс-курс перед входом в бизнес-тренажёр «Из гаража на IPO». Понимание того, как устроена юнит-экономика, борьба за клиентов и хантинг в реальном мире.
+      </p>
+    </div>
+
+    <div class="row mt-auto" style="gap:18px;padding-bottom:16px">
+      <div class="row" style="gap:14px;align-items:center">
+        <div class="chip">01. ДИНАМИКА РЫНКА</div>
+        <div class="chip m">02. ЭТАПЫ СТАРТАПА</div>
+        <div class="chip n">03. СВЯЗКИ И ЮНИТ-ЭКОНОМИКА</div>
+        <div class="chip">04. ИИ-ТРЕКИНГ</div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_01 · theory_intro</span>
+    <span>Академический модуль перед практической симуляцией «Из гаража на IPO»</span>
+    <span>id 0x000101</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 2: ВИДЫ КОНКУРЕНЦИИ ============ -->
+<section data-label="Динамика рынка">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 1 // РЫНОЧНАЯ СРЕДА</div>
+      <div class="sec-no">// МОДУЛЬ 01</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:20px">
+      <h2 class="title t-lg">ЭВОЛЮЦИЯ <span class="cy">КОНКУРЕНЦИИ</span></h2>
+
+      <div class="focus-hero">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: На этапе MVP вы боретесь за свободных клиентов, а на этапе масштабирования — агрессивно уводите клиентов и кадры у соперников.
+        </p>
+      </div>
+
+      <div class="grid g-3" style="margin-top:16px; gap:20px">
+        <div class="panel col" style="gap:12px">
+          <div class="chip">ФАЗА 1 · MVP</div>
+          <h3 style="color:var(--cyan);margin:0;font-size:20px">Свободный рынок</h3>
+          <p style="font-size:15px;color:var(--muted);margin:0">
+            Органический запуск. Продукт проверяет гипотезу RAT на первопроходцах (Early Adopters). Главное — низкий барьер входа.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:12px">
+          <div class="chip m">ФАЗА 2 · FULL PRODUCT</div>
+          <h3 style="color:var(--mag);margin:0;font-size:20px">Захват & Брендинг</h3>
+          <p style="font-size:15px;color:var(--muted);margin:0">
+            Рынок насыщается. Включается борьба за узнаваемость бренда (Brand Equity), что позволяет обоснованно поднимать цену подписки.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:12px">
+          <div class="chip n">ФАЗА 3 · SCALING</div>
+          <h3 style="color:var(--cyan-br);margin:0;font-size:20px">Агрессивный Хантинг</h3>
+          <p style="font-size:15px;color:var(--muted);margin:0">
+            Свободных клиентов нет. Единственный путь роста — переманивание B2B-контрактов и ключевых Senior-разработчиков у конкурентов.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_02 · market_competition</span>
+    <span>Переход от монополистической конкуренции к олигополии и хантингу</span>
+    <span>id 0x000102</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 3: ЭТАПЫ СТАРТАПА ============ -->
+<section data-label="Этапы стартапа">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 2 // ЖИЗНЕННЫЙ ЦИКЛ</div>
+      <div class="sec-no">// МОДУЛЬ 02</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:20px">
+      <h2 class="title t-lg">ТРИ ЭТАПА <span class="cy">РАЗВИТИЯ КОМПАНИИ</span></h2>
+
+      <div class="focus-hero mag">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: Стартап растёт строго поэтапно (MVP → Full → Scaling); попытка нанять Senior-специалистов на этапе сырого MVP приведет к банкротству.
+        </p>
+      </div>
+
+      <div class="grid g-3" style="margin-top:16px; gap:20px">
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">01 / СТАДИЯ MVP</div>
+          <h3 style="color:var(--cyan);margin:0">Проверка гипотез (RAT)</h3>
+          <ul style="font-size:14px;color:var(--muted);padding-left:18px;margin:0;line-height:1.6">
+            <li>Кадры: Junior грейды (DevOps + Product).</li>
+            <li>Ценовой порог: Базовый (20–100 $).</li>
+            <li>Цель: Подтвердить самую рискованную гипотезу.</li>
+          </ul>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">02 / ПОЛНОЦЕННЫЙ ПРОДУКТ</div>
+          <h3 style="color:var(--mag);margin:0">Product-Market Fit</h3>
+          <ul style="font-size:14px;color:var(--muted);padding-left:18px;margin:0;line-height:1.6">
+            <li>Кадры: Подключение Middle-специалистов.</li>
+            <li>Ресурсы: Запуск рекламы и B2B/B2C баз.</li>
+            <li>Ценовой порог: Средний (100–250 $).</li>
+          </ul>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">03 / МАСШТАБИРОВАНИЕ</div>
+          <h3 style="color:var(--white);margin:0">Рыночное доминирование</h3>
+          <ul style="font-size:14px;color:var(--muted);padding-left:18px;margin:0;line-height:1.6">
+            <li>Кадры: Переход на Senior-уровень и хантинг.</li>
+            <li>Инвестиции: Выход на фонды, синдикаты и IPO.</li>
+            <li>Ценовой порог: Премиум (250–500 $).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_03 · startup_lifecycle</span>
+    <span>Поэтапное выполнение требований перед переходом на следующий уровень</span>
+    <span>id 0x000103</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 4: СЕГМЕНТЫ B2B И B2C ============ -->
+<section data-label="B2B vs B2C">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 2 // СТРАТЕГИЯ ПРОДАЖ</div>
+      <div class="sec-no">// МОДУЛЬ 03</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:16px">
+      <h2 class="title t-lg">ВЫБОР СЕГМЕНТА: <span class="cy">B2B VS B2C</span></h2>
+
+      <div class="focus-hero">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: B2B дает высокий чек и длинный цикл сделки, B2C требует массового маркетингового охвата и удержания.
+        </p>
+      </div>
+
+      <div class="grid g-2" style="margin-top:12px; gap:24px">
+        <div class="panel col" style="gap:14px">
+          <div class="chip">B2B · BUSINESS TO BUSINESS</div>
+          <p style="font-size:16px;color:var(--white);margin:0"><strong>Рациональный спрос и персонализированные продажи</strong></p>
+          <div style="font-size:14px;color:var(--muted);line-height:1.6">
+            • <strong>Ключевая связка:</strong> Аналитик Middle (создает базу) + B2B Sales Middle.<br>
+            • <strong>Особенность:</strong> Дорогие подписки (высокий чек), окупающие квалифицированные кадры.<br>
+            • <strong>Главный риск:</strong> Потеря одного B2B-клиента наносит сильный удар по выручке.
+          </div>
+        </div>
+
+        <div class="panel col" style="gap:14px">
+          <div class="chip m">B2C · BUSINESS TO CONSUMER</div>
+          <p style="font-size:16px;color:var(--white);margin:0"><strong>Массовый рынок и эмоциональный выбор</strong></p>
+          <div style="font-size:14px;color:var(--muted);line-height:1.6">
+            • <strong>Ключевая связка:</strong> Маркетолог (рекламные кампании) + B2C Sales / Воронка.<br>
+            • <strong>Особенность:</strong> Низкий чек с клиента, но массовый объем рынка подписок.<br>
+            • <strong>Главный риск:</strong> Высокая стоимость привлечения (CAC) при слабом удержании.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_04 · market_segments</span>
+    <span>Различия в ресурсах и связках персонала при выборе B2B или B2C</span>
+    <span>id 0x000104</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 5: КРОСС-ФУНКЦИОНАЛЬНЫЕ СВЯЗКИ ============ -->
+<section data-label="Связки и кадры">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 3 // ОПЕРАЦИОННАЯ МОДЕЛЬ</div>
+      <div class="sec-no">// МОДУЛЬ 04</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:16px">
+      <h2 class="title t-lg">КРОСС-ФУНКЦИОНАЛЬНЫЕ <span class="cy">СВЯЗКИ</span></h2>
+
+      <div class="focus-hero mag">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: Продажи не идут без полной цепочки «Специалист + Ресурс»; уход одного сотрудника ломает весь процесс.
+        </p>
+      </div>
+
+      <div class="grid g-2" style="margin-top:12px; gap:20px">
+        <div class="panel col" style="gap:10px">
+          <h3 style="color:var(--cyan);margin:0;font-size:18px">Примеры неразрывных связок:</h3>
+          <div style="font-size:14px;color:var(--muted);line-height:1.7">
+            • <strong>MVP:</strong> DevOps Junior + Product Junior ──► Работающий продукт.<br>
+            • <strong>B2B Продажи:</strong> Аналитик Middle + База B2B + Sales Middle.<br>
+            • <strong>Инвестиции:</strong> Аналитик Senior (база инвесторов) + Маркетолог Middle (питч-дек).
+          </div>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <h3 style="color:var(--mag);margin:0;font-size:18px">Угроза хантинга и разрыва:</h3>
+          <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.6">
+            Если соперники переманят вашего DevOps или Аналитика, создавшего базу, <strong>связка мгновенно ломается</strong>. Обслуживание продукта останавливается, а клиенты уходят к конкурентам.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_05 · functional_bundles</span>
+    <span>Зависимость результатов команды от полноты кросс-функциональной цепочки</span>
+    <span>id 0x000105</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 6: ЮНИТ-ЭКОНОМИКА И КРИЗИСЫ ============ -->
+<section data-label="Экономика и кризисы">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 3 // ФИНАНСЫ И КРИЗИСЫ</div>
+      <div class="sec-no">// МОДУЛЬ 05</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:16px">
+      <h2 class="title t-lg">ЮНИТ-ЭКОНОМИКА & <span class="cy">«ЧЁРНЫЕ ЛЕБЕДИ»</span></h2>
+
+      <div class="focus-hero">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: Прибыль определяется балансом цен и расходов, а гибкость стратегии спасает компанию при внешних шоках.
+        </p>
+      </div>
+
+      <div class="grid g-3" style="margin-top:12px; gap:20px">
+        <div class="panel col" style="gap:10px">
+          <div class="chip">УПРАВЛЕНИЕ ФИНАНСАМИ</div>
+          <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.6">
+            <strong>Выручка = Клиенты × Цена подписки.</strong><br>
+            Контролируйте OPEX (зарплаты + аренду баз). Не допускайте ситуации, когда расходы превышают приход.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="chip m">КРЕДИТЫ VS ИНВЕСТИЦИИ</div>
+          <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.6">
+            <strong>Кредит</strong> создает ежемесячный долг.<br>
+            <strong>Венчур (Ангелы/Фонды)</strong> не требует выплат сейчас, но размывает долю владельцев и капитализацию на финише.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="chip n">«ЧЁРНЫЕ ЛЕБЕДИ»</div>
+          <p style="font-size:14px;color:var(--muted);margin:0;line-height:1.6">
+            Внезапные события (пандемия, изоляция) рушат привычный спрос.<br>
+            <strong>Побеждает тот, кто быстрее скорректирует стратегию!</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_06 · unit_economics</span>
+    <span>Финансовое моделирование и антикризисное управление в неопределенности</span>
+    <span>id 0x000106</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 7: МОСТ К СИМУЛЯТОРУ ============ -->
+<section data-label="Симулятор">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 4 // ПРАКТИКА В ТРЕНАЖЁРЕ</div>
+      <div class="sec-no">// МОДУЛЬ 06</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:16px">
+      <h2 class="title t-lg">ОТ ТЕОРИИ К <span class="cy">БИЗНЕС-СИМУЛЯТОРУ</span></h2>
+
+      <div class="focus-hero mag">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: Симулятор — безопасная среда, где вы проживёте 15 ходов борьбы за рынок в реальном времени.
+        </p>
+      </div>
+
+      <div class="grid g-3" style="margin-top:12px; gap:20px">
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">15 ХОДОВ</div>
+          <h3 style="color:var(--cyan);margin:0;font-size:18px">Динамический рынок</h3>
+          <p style="font-size:14px;color:var(--muted);margin:0">
+            Каждые 3 минуты система пересчитывает результаты команд, позиции, юнит-экономику и спрос.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">ОГРАНИЧЕНИЯ</div>
+          <h3 style="color:var(--mag);margin:0;font-size:18px">Лимит действий</h3>
+          <p style="font-size:14px;color:var(--muted);margin:0">
+            Ограниченный бюджет и 5 действий за ход требуют приоритезации ключевых задач.
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:10px">
+          <div class="sec-no">ДАШБОРД</div>
+          <h3 style="color:var(--white);margin:0;font-size:18px">Прозрачность</h3>
+          <p style="font-size:14px;color:var(--muted);margin:0">
+            Отслеживание состояния продукта, репутации, долгов и баланса в реальном времени.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_07 · simulator_bridge</span>
+    <span>Правила перехода теоретических знаний в игровые механики тренажера</span>
+    <span>id 0x000107</span>
+  </div>
+</section>
+
+<!-- ============ SLIDE 8: ИИ-ТРЕКИНГ И ИТОГИ ============ -->
+<section data-label="ИИ-Трек">
+  <canvas class="matrix"></canvas>
+  <div class="scanlines"></div>
+  <div class="pad">
+    <div class="row" style="justify-content:space-between;align-items:center">
+      <div class="eyebrow">РАЗДЕЛ 4 // ИИ-АНАЛИТИКА</div>
+      <div class="sec-no">// МОДУЛЬ 07</div>
+    </div>
+
+    <div class="col" style="gap:20px; margin-top:16px">
+      <h2 class="title t-lg">ИИ-ОТЧЁТ & <span class="cy">ОБРАЗОВАТЕЛЬНЫЙ ТРЕК</span></h2>
+
+      <div class="focus-hero">
+        <p style="font-size:22px; color:var(--white); font-weight:700; margin:0">
+          ОСНОВНАЯ МЫСЛЬ: ИИ-ассистент проанализирует ваши действия и сформирует персональные рекомендации для учебы в ВУЗе.
+        </p>
+      </div>
+
+      <div class="grid g-2" style="margin-top:12px; gap:24px">
+        <div class="panel col" style="gap:12px">
+          <div class="chip">ПРОФИЛЬ КОМАНДЫ</div>
+          <h3 style="color:var(--cyan);margin:0;font-size:20px">Анализ решений</h3>
+          <p style="font-size:15px;color:var(--muted);margin:0;line-height:1.6">
+            ИИ подсвечивает сильные стороны (где команда проявила гибкость) и слабые места (где сломались связки или просела юнит-экономика).
+          </p>
+        </div>
+
+        <div class="panel col" style="gap:12px">
+          <div class="chip m">ПЕРСОНАЛЬНЫЙ ТРЕК</div>
+          <h3 style="color:var(--mag);margin:0;font-size:20px">Рекомендации для учебы</h3>
+          <p style="font-size:15px;color:var(--muted);margin:0;line-height:1.6">
+            По итогам симуляции каждый студент получает вектор развития: какие предметы, курсы и навыки по менеджменту, финансам или аналитике стоит подтянуть.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="ticker">
+    <span class="l">// node_08 · ai_educational_track</span>
+    <span>ИИ-анализ поведения команды и формирование траектории обучения</span>
+    <span>id 0x000108</span>
+  </div>
+</section>
+
+</deck-stage>
+
+<script src="deck-stage.js"></script>
+<script src="matrix.js"></script>
+</body>
+</html>
